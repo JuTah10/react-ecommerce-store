@@ -1,0 +1,52 @@
+.account-navbar{ 
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+    max-width:30%;
+}
+
+.account-navbar-first-half > .account-navbar-greeting{
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight:700;
+    font-size:20px;
+}
+.user-points-container{
+    background-color: #f1ebdf;
+    padding:10px;
+}
+.user-points-container > .user-points{
+    font-weight:700;
+    font-size: 30px;
+}
+.user-points-container > .user-point-description{
+    font-size: 11px;
+}
+
+.account-navbar-second-half{
+    display:flex;
+    flex-direction: column;
+}
+
+.nav{
+    display:flex;
+    text-decoration: none;
+    justify-content: space-between;
+    align-items: center;
+    color:black;
+    padding: 10px;
+}
+.individualNav-container{
+    display:flex;
+    align-items: center;
+    gap: 5px;
+}
+.diffBackground{
+    background-color: #faf9f8;
+}
+.isActive{
+    color:red;
+}
+  

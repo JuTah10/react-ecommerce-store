@@ -1,44 +1,60 @@
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
-import {setLogin, login} from "../../app/userSlice";
-import API_URL from "../../constant/routeConstants"
 
 
+import { Link,useLocation, Outlet} from "react-router-dom";
+
+import "./Account.css"
+
+
+
+//for component 
+import AccountNav from "./Nav-bar/AccountNav";
+
+import React from "react";
+
+
+
+
+
+
+
+const Context = React.createContext();
 const Account = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const logOut = () => {
-        dispatch(setLogin(false))
-        
-        const payload =  {
-            method: 'POST', // Specify the HTTP method
-            credentials: 'include',
+ 
+   
+    const location = useLocation()
+    console.log(location)
+   const email = location.state?.key ? location.state.key : "Member"
 
-          }
-
-        const response = fetch(`${API_URL.LOGOUT}`, payload)
-        console.log(response)
-    }
-
+   
     return (
-        <div style={{
-            display:'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems:'center',
-            gap:"10px"
-        }}>
-            <h1 style={{textAlign:"center"}}>
-                YOU ARE LOGGED IN!
-            </h1>
-            <button onClick={() => {
-                logOut()
-                navigate('/login')
-                }} style={{width:"100px"}}>
-                LOG OUT
-            </button>
+        <div className="page-container">
+            <div className="mainpage-container">
+                <AccountNav email={email}/>
+                    {location.pathname === "/account" ? 
+                        <div>
+                            <div className="main-interface-container-first-half">
+                                <div>My offers</div>
+                                <div>Here is where list of offers is gonna be </div>
+                            </div>
+                            <div className="main-interface-container-second-half">
+                                <div>All purchases</div>
+                                <div className="all-purchases-container">
+                                    <div>No purchases made</div>
+                                    <Link to="/">Continue Shopping</Link>
+                                </div>
+                            </div>
+                        </div> 
+                    :
+                        <Outlet/>
+                    }
+               
+            </div>
+        
+            
+     
+            
         </div>
+    
     )
 }
 
