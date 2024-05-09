@@ -1,5 +1,5 @@
 export default function Purchases(){
     return(
-        <div>this is the purchases page</div>
+        <div className="account-right-side">this is the purchases page</div>
     );
 }

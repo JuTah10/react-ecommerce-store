@@ -1,5 +1,5 @@
 export default function MyPoint(){
     return(
-        <div>This is My Point page</div>
+        <div className="account-right-side">This is My Point page</div>
     );
 }

@@ -15,31 +15,38 @@ import React from "react";
 
 
 
-
+import { useSelector, useDispatch } from "react-redux";
 
 const Context = React.createContext();
 const Account = () => {
- 
+    const {cartItems, totalCartPrice } = useSelector( state => state.cart)
    
     const location = useLocation()
-    console.log(location)
+  
    const email = location.state?.key ? location.state.key : "Member"
-
+    console.log(cartItems)
    
     return (
         <div className="page-container">
             <div className="mainpage-container">
-                <AccountNav email={email}/>
+                <AccountNav  path={location.pathname} email={email}/>
                     {location.pathname === "/account" ? 
-                        <div>
+                        <div className="account-right-side">
                             <div className="main-interface-container-first-half">
                                 <div>My offers</div>
                                 <div>Here is where list of offers is gonna be </div>
                             </div>
                             <div className="main-interface-container-second-half">
-                                <div>All purchases</div>
+                                <div>Current Cart Items</div>
                                 <div className="all-purchases-container">
-                                    <div>No purchases made</div>
+                                    <div>
+                                        {
+                                            cartItems.length>0? 
+                                            cartItems.map((item)=>{
+                                                return <div>{item.itemName} {item.size}</div>
+                                            })
+                                            : 
+                                            "Your cart is empty"}</div>
                                     <Link to="/">Continue Shopping</Link>
                                 </div>
                             </div>

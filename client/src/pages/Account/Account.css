@@ -3,5 +3,24 @@
     margin-block:70px;
     max-width:70%;
     display:flex;
-    border:red solid 2px;
+    gap: 40px;
+
+}
+.account-right-side{
+    width:100%;
+    padding-block:10px;
+    font-size:12px;
+    font-weight:500;
+}
+
+@media (max-width: 1000px){
+    .mainpage-container{
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .account-right-side{
+        padding: 10px;
+    }
+   
+   
 }

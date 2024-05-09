@@ -14,7 +14,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
 
-export default function AccountNav({email}){
+export default function AccountNav({email,path}){
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const logOut = () => {
@@ -31,9 +31,9 @@ export default function AccountNav({email}){
     }
     
     return(
-        <div className="account-navbar">
+        <div className={path === "/account" ? "account-navbar" : "account-navbar section-navbar"}>
             <div className="account-navbar-first-half">
-                <div className="account-navbar-greeting">Hi {email}<CiSettings size="2rem"/></div>
+                <div className="account-navbar-greeting">Hi {email.replace("@gmail.com","")}<CiSettings size="2rem"/></div>
                 <div className="user-points-container">
                     <div className="user-points">0 points</div>
                     <div className="user-point-description">
@@ -48,21 +48,21 @@ export default function AccountNav({email}){
                     <div className="individualNav-container">
                         <FiBox size="2rem"/>My purchases
                     </div>
-                    <IoIosArrowForward size="2rem"/>
+                    <IoIosArrowForward className="icon-arrow" size="2rem"/>
                 </NavLink>
                 
                 <NavLink className={({isActive})=> isActive? "isActive nav": "nav"} to="/account/settings">
                     <div className="individualNav-container">
                         <CiSettings size="2rem"/>Account settings
                     </div>
-                    <IoIosArrowForward size="2rem"/>
+                    <IoIosArrowForward className="icon-arrow" size="2rem"/>
                 </NavLink>
 
                 <NavLink className={({isActive})=> isActive? "diffBackground isActive nav": "diffBackground nav"} to="/account/points-history">
                     <div className="individualNav-container">
                         <FaHandSparkles size="2rem"/>My points
                     </div>
-                    <IoIosArrowForward size="2rem"/>
+                    <IoIosArrowForward className="icon-arrow" size="2rem"/>
                 </NavLink>
 
                 <NavLink className="nav" onClick={()=> {

@@ -8,7 +8,7 @@ import Checkout from "./pages/Checkout/Checkout"
 import Register from "./pages/Register/Register"
 import Account from "./pages/Account/Account"
 import Purchases from "./pages/Account/Purchases"
-import Settings from "./pages/Account/Settings"
+import Settings from "./pages/Account/Settings/Settings"
 import MyPoint from "./pages/Account/MyPoint"
 
 import SwiperCore, { Autoplay } from 'swiper';
@@ -38,6 +38,10 @@ const Layout = () => {
 }
 
 const router = createBrowserRouter([
+    // {
+    //   path:"*",
+    //   element: <div>ERROR 404</div> // if want to make it without default page layout <3
+    // },
     {
       path:"/",
       element:<Layout/>,
@@ -101,6 +105,11 @@ const router = createBrowserRouter([
           },
         ]
       },
+      {
+        path:"*",
+        element: <div>ERROR 404</div> //fix this later for 404 page daddy <33
+      }
+     
       ]
     }
   
