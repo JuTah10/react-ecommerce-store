@@ -107,7 +107,7 @@ const router = createBrowserRouter([
       },
       {
         path:"*",
-        element: <div>ERROR 404</div> //fix this later for 404 page daddy <33
+        element: <div>ERROR 404</div> 
       }
      
       ]

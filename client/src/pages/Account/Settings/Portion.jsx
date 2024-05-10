@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom"
 export default function Portion({objects}){
-    console.log(objects)
     return(
         <div className="portion-container">
             <div className="portion-intro">
                 <div className="portion-title">{objects[0].title}</div>
-                <Link>Edit</Link>
+                <Link style={{fontSize: "15px"}}>Edit</Link>
             </div>
             {objects.map((object)=>{
                 return (
                     <div className="portion-main-content">
                         {object.categoriesName 
-
                             ? 
-                            <div style={{fontSize: "10px"}}className={object.categoriesNameSize? object.categoriesNameSize : null}>
+                            <div style={{fontSize: "15px",fontWeight:600}}className={object.categoriesNameSize? object.categoriesNameSize : null}>
                                 {object.categoriesName}
                             </div> 
                             : 
@@ -24,7 +22,7 @@ export default function Portion({objects}){
                         {object.categoriesDescription 
                 
                             ? 
-                            <div className={object.desSize ? object.desSize : null}>
+                            <div className="Portion-categoriesDes">
                                 {object.categoriesDescription}
                             </div>
                             :    

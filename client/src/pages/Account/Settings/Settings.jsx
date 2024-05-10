@@ -74,7 +74,7 @@ export default function Settings(){
                                     },
                                     {
                                         categoriesName: <Link className="linkStyle">My Personal Data</Link>,
-                                        categoriesDescription: "On H&M Group´s privacy portal you can see your personal data across our brands and countries. Here you can edit subscriptions, request a copy of your data or choose to delete your information."
+                                        categoriesDescription: "Text holder"
                                     }
                                 ]}/>
                 
